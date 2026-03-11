@@ -1,13 +1,20 @@
-import React from 'react'
-import NumberInput from '../inputs/NumberInput'
-import PasswordInput from '../inputs/PasswordInput'
+'use client'
+import { employeePhoneLogin } from '@/app/types/employeeLogin'
+import { FormProvider, useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import FormInput from '../inputs/FormInput'
 const PhoneLogin = () => {
+    const methods = useForm<employeePhoneLogin>({resolver:zodResolver(employeePhoneLogin),mode:'onChange'})
     return (
-        <div>
-            <NumberInput numberName='Phone Number' />
-            <PasswordInput />
+        <form>
+            <FormProvider {...methods}>
+            <FormInput <employeePhoneLogin> 
+             lable="phone" placeholder="9864890543" name="phone" type="text" />
+            <FormInput <employeePhoneLogin>
+             lable="password" placeholder="johnTYZtag12@KTE" name="password" type="text" />
             <button>submit</button>
-        </div>
+            </FormProvider>
+        </form>
     )
 }
 export default PhoneLogin

@@ -2,6 +2,7 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @custom-variant dark (&:is(.dark *));
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -44,6 +45,7 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 }
+
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -78,6 +80,7 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 }
+
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -111,33 +114,42 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 }
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
   }
+
   /* ============================ */
   section {
     @apply my-4
   }
 }
+
 .errorMessage {
-    @apply text-red-500
-  }
-  .successMessage {
-    @apply text-green-500
-  }
-  .validatingInput{
-    @apply bg-yellow-200 border-b-4 border-yellow-500 text-yellow-700 animate-pulse
-  }
-  .invalidInput{
-    @apply bg-red-200 border-b-4 border-red-500 text-red-700
-  }
-  .validInput{
-    @apply bg-green-200 border-b-4 border-green-500 text-green-700
-  }
+  @apply text-red-500
+}
+
+.successMessage {
+  @apply text-green-500
+}
+
+.validatingInput {
+  @apply bg-yellow-200 border-b-4 border-yellow-500 text-yellow-700 animate-pulse
+}
+
+.invalidInput {
+  @apply bg-red-200 border-b-4 border-red-500 text-red-700
+}
+
+.validInput {
+  @apply bg-green-200 border-b-4 border-green-500 text-green-700
+}
