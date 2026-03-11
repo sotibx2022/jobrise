@@ -121,7 +121,23 @@
   html {
     @apply font-sans;
   }
+  /* ============================ */
   section {
     @apply my-4
   }
 }
+.errorMessage {
+    @apply text-red-500
+  }
+  .successMessage {
+    @apply text-green-500
+  }
+  .validatingInput{
+    @apply bg-yellow-200 border-b-4 border-yellow-500 text-yellow-700 animate-pulse
+  }
+  .invalidInput{
+    @apply bg-red-200 border-b-4 border-red-500 text-red-700
+  }
+  .validInput{
+    @apply bg-green-200 border-b-4 border-green-500 text-green-700
+  }

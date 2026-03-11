@@ -1,10 +1,10 @@
-import EmailInput from '@/app/components/form/inputs/EmailInput'
-import PasswordInput from '@/app/components/form/inputs/PasswordInput'
-import React from 'react'
+'use client'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import NumberInput from '@/app/components/form/inputs/NumberInput'
 import Wrapper from '@/app/components/structure/Wrapper'
 import Center from '@/app/components/structure/Center'
+import EmailLogin from '@/app/components/form/loginform/EmailLogin'
+import PhoneLogin from '@/app/components/form/loginform/PhoneLogin'
+import PinLogin from '@/app/components/form/loginform/PinLogin'
 const page = () => {
   return (
     <Center>
@@ -17,18 +17,13 @@ const page = () => {
             <TabsTrigger value="pin">Login with PIN</TabsTrigger>
           </TabsList>
           <TabsContent value="email">
-            <EmailInput />
-            <PasswordInput />
-            <button>Submit</button>
+            <EmailLogin />
           </TabsContent>
           <TabsContent value="phone">
-            <NumberInput numberName='Phone Number' />
-            <PasswordInput />
-            <button>submit</button>
+            <PhoneLogin />
           </TabsContent>
           <TabsContent value="pin">
-            <NumberInput numberName='Pin Number' />
-            <button>submit</button>
+            <PinLogin />
           </TabsContent>
         </Tabs>
       </Wrapper>
