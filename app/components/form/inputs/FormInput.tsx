@@ -22,10 +22,10 @@ const FormInput = <T extends FieldValues>({ lable, placeholder, name, type }: Fo
   const { debounceValue } = useDebounce(1000, inputValue)
   // Show form message only after user stops typing
   const hasValue =
-  inputValue !== undefined &&
-  inputValue !== null &&
-  inputValue !== "" &&
-  !Number.isNaN(inputValue)
+    inputValue !== undefined &&
+    inputValue !== null &&
+    inputValue !== "" &&
+    !Number.isNaN(inputValue)
   const showFormMessage = inputValue === debounceValue && hasValue
   const validInput = showFormMessage && !errors.name
   return (

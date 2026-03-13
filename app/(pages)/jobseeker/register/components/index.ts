@@ -7,12 +7,12 @@ import PreviewDetails from "./PreviewDetails"
 import EducationalDetails from "./EducationalDetails"
 import Skills from "./Skills"
 export {
-  AccountInformation,
-  PersonalInformation,
-  ResumeInformation,
-  JobPreference,
-  AdditionalDetails,
-  PreviewDetails,
-  EducationalDetails,
-  Skills
+    AccountInformation,
+    PersonalInformation,
+    ResumeInformation,
+    JobPreference,
+    AdditionalDetails,
+    PreviewDetails,
+    EducationalDetails,
+    Skills
 }
