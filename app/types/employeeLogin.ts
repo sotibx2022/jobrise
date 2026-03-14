@@ -1,5 +1,6 @@
 import { z } from "zod"
 import { passwordSchema } from "../zodSchema/passwordSchema"
+import { createNumberSchema } from "../zodSchema/numberSchema"
 // Email login schema
 export const employeeEmailLogin = z.object({
     email: z
@@ -9,17 +10,11 @@ export const employeeEmailLogin = z.object({
 })
 // Pin login schema
 export const employeePinLogin = z.object({
-    pin: z
-        .string()
-        .length(4, "Pin must be exactly 4 digits")
-        .regex(/^\d+$/, "Pin must contain only digits"),
+    pin: createNumberSchema("Pin", 4), // using the number schema for a 4-digit pin
 })
 // Phone login schema
 export const employeePhoneLogin = z.object({
-    phone: z
-        .string()
-        .length(10, "Phone number must be exactly 10 digits")
-        .regex(/^\d+$/, "Phone number must contain only digits"),
+    phone: createNumberSchema("Phone", 10), // using the number schema for a 10-digit phone number
     password: passwordSchema,
 })
 // TypeScript types inferred from schemas

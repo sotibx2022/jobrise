@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { passwordSchema } from '../zodSchema/passwordSchema';
 import { createNameSchema } from '../zodSchema/nameSchema';
 import { createDateValidation } from '../zodSchema/dateSchema';
+import { createNumberSchema } from '../zodSchema/numberSchema';
 export const employeeAccountInfo = z
   .object({
     email: z.string().email("Please enter a valid email address"),
@@ -29,7 +30,7 @@ export const employeePersonalInfo = z.object({
     street: z.string().min(1, "Street is required"),
     country: z.string().min(1, "Country is required"),
   }),
-  postalCode: z.string().min(1, "Postal Code is required"),
+  postalCode: createNumberSchema("Postal Code", 5), // assuming postal code is 5 digits, adjust as needed
   profilePhoto: z.string(),
 });
 export const professionalInfo = z.array(
