@@ -2,7 +2,7 @@
 import FormMessage from "../FormMessage"
 import Lable from "./Lable"
 import useDebounce from "@/app/hooks/useDebounce"
-import { useFormContext, Path, FieldValues } from "react-hook-form"
+import { useFormContext, Path, FieldValues, get } from "react-hook-form"
 import {
   InputGroup,
   InputGroupAddon,
@@ -17,8 +17,7 @@ interface FormInputProps<T extends FieldValues> {
 const FormInput = <T extends FieldValues>({ lable, placeholder, name, type }: FormInputProps<T>) => {
   const { register, formState: { errors }, watch } = useFormContext()
   const inputValue = watch(name)
-  console.log(inputValue)
-  const error = errors[name]
+  const error = get(errors, name);
   const { debounceValue } = useDebounce(1000, inputValue)
   // Show form message only after user stops typing
   const hasValue =
@@ -27,7 +26,7 @@ const FormInput = <T extends FieldValues>({ lable, placeholder, name, type }: Fo
     inputValue !== "" &&
     !Number.isNaN(inputValue)
   const showFormMessage = inputValue === debounceValue && hasValue
-  const validInput = showFormMessage && !errors.name
+  const validInput = showFormMessage && !error
   return (
     <div>
       <Lable name={lable} />

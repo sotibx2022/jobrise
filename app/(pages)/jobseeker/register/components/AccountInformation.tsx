@@ -1,11 +1,23 @@
-import React from 'react'
+"use client"
+import { useFormContext } from "react-hook-form"
+import { accountDetails, registerDetails, registerInfo } from "@/app/types/employeeRegister"
+import { z } from "zod"
+import FormInput from "@/app/components/form/inputs/FormInput"
+import { accountInfo } from "@/app/data/registerData/accountData"
 const AccountInformation = () => {
+  useFormContext<registerDetails>()
   return (
-    <FormInput <employeeEmailLogin>
-                        lable="Email" placeholder="johnmagtag12@gmail.com" name="email" type="text" />
-                    <FormInput <employeeEmailLogin>
-                        lable="password" placeholder="ktxbG@34rfd" name='password' type='text' />
-                    <button>Submit</button>
+    <div>
+      {accountInfo.map((info, index) => {
+        return <FormInput<registerDetails>
+          key={index}
+          lable={info.lable}
+          placeholder={info.placeholder}
+          name={`accountDetails.${info.name}`}
+          type={info.type}
+        />
+      })}
+    </div>
   )
 }
 export default AccountInformation
