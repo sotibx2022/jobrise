@@ -6,14 +6,14 @@ const PersonalInformation = () => {
   return (
     <div>
       {personalData.map((info, index) => {
-              return <FormInput<registerDetails>
-                key={index}
-                lable={info.lable}
-                placeholder={info.placeholder}
-                name={`personalDetails.${info.name}`}
-                type={info.type}
-              />
-            })}
+        return <FormInput<registerDetails>
+          key={index}
+          lable={info.lable}
+          placeholder={info.placeholder}
+          name={`personalDetails.${info.name}`}
+          type={info.type}
+        />
+      })}
     </div>
   )
 }

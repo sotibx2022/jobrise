@@ -21,7 +21,7 @@ const Page = () => {
     <div>
       <FormProvider {...methods}>
         <form>
-          <AccountInformation />
+          {/* <AccountInformation /> */}
           <PersonalInformation />
           <ResumeInformation />
           <JobPreference />
