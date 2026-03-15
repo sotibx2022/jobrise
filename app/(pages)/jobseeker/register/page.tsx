@@ -22,7 +22,7 @@ const Page = () => {
       <FormProvider {...methods}>
         <form>
           {/* <AccountInformation /> */}
-          <PersonalInformation />
+          {/* <PersonalInformation /> */}
           <ResumeInformation />
           <JobPreference />
           <EducationalDetails />

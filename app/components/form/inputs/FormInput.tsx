@@ -8,6 +8,7 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from "@/components/ui/input-group"
+import { Textarea } from "@/components/ui/textarea"
 interface FormInputProps<T extends FieldValues> {
   lable: string,
   placeholder: string,
@@ -27,6 +28,13 @@ const FormInput = <T extends FieldValues>({ lable, placeholder, name, type }: Fo
     !Number.isNaN(inputValue)
   const showFormMessage = inputValue === debounceValue && hasValue
   const validInput = showFormMessage && !error
+  if (type === "textarea") {
+    return <div>
+      <Lable name={lable} />
+      <Textarea placeholder={placeholder} {...register(name)} />
+      {showFormMessage && <FormMessage error={error?.message as string} />}
+    </div>
+  }
   return (
     <div>
       <Lable name={lable} />

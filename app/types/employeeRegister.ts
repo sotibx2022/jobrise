@@ -35,10 +35,10 @@ export const employeePersonalInfo = z.object({
 });
 export const professionalInfo = z.array(
   z.object({
+    employerName: createNameSchema(2, 50, /^[A-Za-z ]+$/, "Employer Name"),
     jobTitle: createNameSchema(2, 50, /^[A-Za-z ]+$/, "Job Title"),
     yearsOfExperience: z.number().min(0, "Years of Experience must be a positive number"),
-    skills: z.array(createNameSchema(2, 50, /^[A-Za-z ]+$/, "Skill")),
-    roles: z.array(createNameSchema(2, 50, /^[A-Za-z ]+$/, "Role")),
+    roles: createNameSchema(100, 500, /^[A-Za-z ]+$/, "Roles"),
   })
 );
 export const educationInfo = z.array(
