@@ -23,7 +23,7 @@ const Page = () => {
         <form>
           {/* <AccountInformation /> */}
           {/* <PersonalInformation /> */}
-          <ResumeInformation />
+          {/* <ResumeInformation /> */}
           <JobPreference />
           <EducationalDetails />
           <Skills />
