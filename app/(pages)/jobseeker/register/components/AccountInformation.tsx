@@ -4,6 +4,7 @@ import { accountDetails, registerDetails, registerInfo } from "@/app/types/emplo
 import { z } from "zod"
 import FormInput from "@/app/components/form/inputs/FormInput"
 import { accountInfo } from "@/app/data/registerData/accountData"
+import NextButton from "@/app/components/buttons/NextButton"
 const AccountInformation = () => {
   useFormContext<registerDetails>()
   return (

@@ -1,3 +1,4 @@
+import NextButton from '@/app/components/buttons/NextButton'
 import FormInput from '@/app/components/form/inputs/FormInput'
 import { personalData } from '@/app/data/registerData/personalData'
 import { registerDetails } from '@/app/types/employeeRegister'

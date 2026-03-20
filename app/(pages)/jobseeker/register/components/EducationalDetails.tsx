@@ -1,4 +1,5 @@
 'use client'
+import NextButton from '@/app/components/buttons/NextButton';
 import FormInput from '@/app/components/form/inputs/FormInput';
 import { educationInfoFields } from '@/app/data/registerData/educationData';
 import { registerDetails } from '@/app/types/employeeRegister';

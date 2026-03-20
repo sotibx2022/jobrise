@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { professionalInfoFields } from '@/app/data/registerData/resumeData'
 import FormInput from '@/app/components/form/inputs/FormInput'
 import { registerDetails } from '@/app/types/employeeRegister'
+import NextButton from '@/app/components/buttons/NextButton'
 const ResumeInformation = () => {
   const [experiences, setExperiences] = useState(1);
   return (
