@@ -9,11 +9,13 @@ import {
   AdditionalDetails,
   PreviewDetails
 } from "./components"
+import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { FormProvider, useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { registerDetails, registerInfo } from "@/app/types/employeeRegister"
 import { useState } from "react"
 import FormMessage from "@/app/components/form/FormMessage"
+import ResponsiveButton from "@/app/components/buttons/ResponsiveButton"
 const stepFields = [
   // 1. AccountInformation
   [
@@ -89,8 +91,8 @@ const Page = () => {
               {nextValue === index &&
                 <div>
                   <Component />
-                  {nextValue<componentsArray.length - 1 && <button type='button' onClick={() => handleNext(index)}>Next</button>}
-                  {nextValue>0 && <button type='button' onClick={() => setNextValue(nextValue - 1)}>Back</button>}
+                  {nextValue < componentsArray.length - 1 && <ResponsiveButton onClick={() => handleNext(index)} type="button" text="Next" icon={ChevronRight} />}
+                  {nextValue > 0 && <ResponsiveButton onClick={() => setNextValue(nextValue - 1)} type="button" text="Back" icon={ChevronLeft} />}
                 </div>}
             </div>
           })}
