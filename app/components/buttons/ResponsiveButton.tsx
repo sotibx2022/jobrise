@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 interface ResponsiveButtonProps {
   text: string;
   icon: LucideIcon;
-  onClick?: () => void; 
+  onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
 }
 const ResponsiveButton: React.FC<ResponsiveButtonProps> = ({ text, icon: Icon, onClick, type }) => {
@@ -17,7 +17,7 @@ const ResponsiveButton: React.FC<ResponsiveButtonProps> = ({ text, icon: Icon, o
       className='relative mt-8'
       onMouseEnter={() => setHoverText(true)} onMouseLeave={() => setHoverText(false)}
     >
-      <Icon size={20}  />
+      <Icon size={20} />
       {hoverText && <span className="absolute h-full w-full -top-4 left-1/2 transform -translate-x-1/2 text-primary">{text}</span>}
       <span className="hidden sm:inline">{text}</span>
     </Button>
