@@ -111,14 +111,19 @@
   textarea,
   select,
   optgroup,
-  option {}
+  option {
+    @apply text-base  leading-relaxed;
+  }
 }
 @layer components {
   .selectItem {
     @apply text-base text-primary py-3 focus:bg-primary/10 cursor-pointer focus:text-primary-foreground focus:outline-none pl-2 font-medium;
   }
   .primaryParagraph {
-    @apply text-base text-muted-foreground leading-relaxed;
+    @apply text-base  leading-relaxed;
+  }
+  .strongParagraph{
+    @apply text-base  leading-relaxed font-bold;
   }
   .primaryHeading {
     @apply text-2xl sm:text-3xl md:text-4xl font-bold leading-tight bg-gradient-to-l from-[var(--secondary)] via-[var(--primary)] to-[var(--foreground)] bg-clip-text text-transparent inline-block;

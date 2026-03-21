@@ -14,7 +14,7 @@ const ResponsiveButton: React.FC<ResponsiveButtonProps> = ({ text, icon: Icon, o
     <Button
       onClick={onClick}
       type={type}
-      className='relative mt-8'
+      className='relative'
       onMouseEnter={() => setHoverText(true)} onMouseLeave={() => setHoverText(false)}
     >
       <Icon size={20} />

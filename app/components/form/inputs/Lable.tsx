@@ -4,7 +4,7 @@ interface lableProps{
 }
 const Lable:React.FC<lableProps> = ({name}) => {
   return (
-    <strong>{name}</strong>
+    <strong className='strongParagraph'>{name}</strong>
   )
 }
 export default Lable
