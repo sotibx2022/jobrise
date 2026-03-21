@@ -3,7 +3,7 @@ import React, { Children, ReactNode } from 'react'
 import Center from './Center'
 const Wrapper: React.FC<RenderChildren> = ({ children }) => {
     return (
-        <section className='max-w-[300px]'>
+        <section>
                 {children}
         </section>
     )

@@ -9,6 +9,7 @@ import {
   AdditionalDetails,
   PreviewDetails
 } from "./components"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { FormProvider, useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -82,22 +83,46 @@ const Page = () => {
     }
   };
   return (
-    <div>
-      <FormProvider {...methods}>
-        {globalError && <FormMessage error={globalError} />}
-        <form>
-          {componentsArray.map((Component, index) => {
-            return <div key={index}>
-              {nextValue === index &&
-                <div>
-                  <Component />
-                  {nextValue < componentsArray.length - 1 && <ResponsiveButton onClick={() => handleNext(index)} type="button" text="Next" icon={ChevronRight} />}
-                  {nextValue > 0 && <ResponsiveButton onClick={() => setNextValue(nextValue - 1)} type="button" text="Back" icon={ChevronLeft} />}
-                </div>}
-            </div>
-          })}
-        </form>
-      </FormProvider>
+    <div className="pageCenter">
+      <Card>
+        <CardHeader>
+          <CardTitle>Employee Register Form</CardTitle>
+        </CardHeader>
+        <FormProvider {...methods}>
+          <form>
+            {componentsArray.map((Component, index) => (
+              <div>
+                {nextValue === index && (
+                  <>
+                    <CardContent key={index} className="my-4">
+                      <Component />
+                    </CardContent>
+                    <CardFooter className="flex flex-col gap-4">
+                      {globalError && <FormMessage error={globalError} />}
+                      {nextValue > 0 && (
+                        <ResponsiveButton
+                          onClick={() => setNextValue(nextValue - 1)}
+                          type="button"
+                          text="Back"
+                          icon={ChevronLeft}
+                        />
+                      )}
+                      {nextValue < componentsArray.length - 1 && (
+                        <ResponsiveButton
+                          onClick={() => handleNext(index)}
+                          type="button"
+                          text="Next"
+                          icon={ChevronRight}
+                        />
+                      )}
+                    </CardFooter>
+                  </>
+                )}
+              </div>
+            ))}
+          </form>
+        </FormProvider>
+      </Card>
     </div>
   )
 }

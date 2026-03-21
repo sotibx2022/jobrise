@@ -18,7 +18,7 @@ const ResponsiveButton: React.FC<ResponsiveButtonProps> = ({ text, icon: Icon, o
       onMouseEnter={() => setHoverText(true)} onMouseLeave={() => setHoverText(false)}
     >
       <Icon size={20} />
-      {hoverText && <span className="absolute h-full w-full -top-4 left-1/2 transform -translate-x-1/2 text-primary">{text}</span>}
+      {hoverText && <span className="absolute top-6 left-1/2 transform -translate-x-1/2 text-primary sm:hidden bg-white px-2 z-2">{text}</span>}
       <span className="hidden sm:inline">{text}</span>
     </Button>
   );
