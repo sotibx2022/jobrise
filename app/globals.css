@@ -147,10 +147,10 @@
     @apply mx-auto max-w-[90vw];
   }
   .errorMessage {
-    @apply text-base text-destructive;
+    @apply text-base text-red-500 font-bold;
   }
   .successMessage {
-    @apply text-base text-green-600;
+    @apply text-base text-green-600 font-bold;
   }
 .validatingInput {
   @apply bg-yellow-200 border-b-4 border-yellow-500 text-yellow-700 animate-pulse

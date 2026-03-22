@@ -17,47 +17,7 @@ import { registerDetails, registerInfo } from "@/app/types/employeeRegister"
 import { useState } from "react"
 import FormMessage from "@/app/components/form/FormMessage"
 import ResponsiveButton from "@/app/components/buttons/ResponsiveButton"
-const stepFields = [
-  // 1. AccountInformation
-  [
-    "accountDetails.email",
-    "accountDetails.phoneNumber",
-    "accountDetails.pin",
-    "accountDetails.password",
-    "accountDetails.confirmPassword"
-  ],
-  // 2. PersonalInformation
-  [
-    "personalDetails.fullName",
-    "personalDetails.dateOfBirth",
-    "personalDetails.gender",
-    "personalDetails.nationality",
-    "personalDetails.address.city",
-    "personalDetails.address.street",
-    "personalDetails.address.country",
-    "personalDetails.postalCode",
-    "personalDetails.profilePhoto"
-  ],
-  // 3. JobPreference (uses experienceDetails array)
-  ["experienceDetails"],
-  // 4. ResumeInformation (no fields in schema – adjust if needed)
-  [],
-  // 5. EducationalDetails (uses educationDetails array)
-  ["educationDetails"],
-  // 6. Skills
-  [
-    "skillsDetails.skills",
-    "skillsDetails.digitalSkills",
-    "skillsDetails.languageSkills"
-  ],
-  // 7. AdditionalDetails
-  [
-    "additionalDetails.profileSummary",
-    "additionalDetails.portfolioLink"
-  ],
-  // 8. PreviewDetails
-  []
-] as const;
+import { stepFields } from "@/app/types/employeeRegisterFields";
 const Page = () => {
   const componentsArray = [AccountInformation,
     PersonalInformation,
@@ -84,27 +44,28 @@ const Page = () => {
   };
   return (
     <div className="pageCenter">
-      <Card>
+      <Card className='container'>
         <CardHeader>
           <CardTitle>Employee Register Form</CardTitle>
         </CardHeader>
         <FormProvider {...methods}>
           <form>
             {componentsArray.map((Component, index) => (
-              <div>
+              <div key={index}>
                 {nextValue === index && (
                   <>
-                    <CardContent key={index} className="my-4">
+                    <CardContent className="my-4">
                       <Component />
                     </CardContent>
                     <CardFooter className="flex flex-col gap-4">
-                      {globalError && <FormMessage error={globalError} />}
+                      <FormMessage error={globalError} />
                       {nextValue > 0 && (
                         <ResponsiveButton
                           onClick={() => setNextValue(nextValue - 1)}
                           type="button"
                           text="Back"
                           icon={ChevronLeft}
+                          className='mr-auto'
                         />
                       )}
                       {nextValue < componentsArray.length - 1 && (
@@ -113,6 +74,7 @@ const Page = () => {
                           type="button"
                           text="Next"
                           icon={ChevronRight}
+                          className='ml-auto'
                         />
                       )}
                     </CardFooter>

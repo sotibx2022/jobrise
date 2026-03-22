@@ -1,0 +1,33 @@
+export const stepFields = [
+  [
+    "accountDetails.email",
+    "accountDetails.phoneNumber",
+    "accountDetails.pin",
+    "accountDetails.password",
+    "accountDetails.confirmPassword"
+  ],
+  [
+    "personalDetails.fullName",
+    "personalDetails.dateOfBirth",
+    "personalDetails.gender",
+    "personalDetails.nationality",
+    "personalDetails.address.city",
+    "personalDetails.address.street",
+    "personalDetails.address.country",
+    "personalDetails.postalCode",
+    "personalDetails.profilePhoto"
+  ],
+  ["experienceDetails"],
+  [],
+  ["educationDetails"],
+  [
+    "skillsDetails.skills",
+    "skillsDetails.digitalSkills",
+    "skillsDetails.languageSkills"
+  ],
+  [
+    "additionalDetails.profileSummary",
+    "additionalDetails.portfolioLink"
+  ],
+  []
+] as const;

@@ -9,6 +9,9 @@ import {
   InputGroupInput,
 } from "@/components/ui/input-group"
 import { Textarea } from "@/components/ui/textarea"
+import { Spinner } from "@/components/ui/spinner"
+import Success from "../../animatedIcons/Success"
+import Error from "../../animatedIcons/Error"
 interface FormInputProps<T extends FieldValues> {
   lable: string,
   placeholder: string,
@@ -43,7 +46,7 @@ const FormInput = <T extends FieldValues>({ lable, placeholder, name, type }: Fo
           type={type}
           placeholder={placeholder}
           {...register(name, { valueAsNumber: type === "number" })} />
-        {hasValue && <InputGroupAddon align="inline-end">{!showFormMessage ? "validating" : validInput ? "green" : "red"}</InputGroupAddon>}
+        {hasValue && <InputGroupAddon align="inline-end">{!showFormMessage ? <Spinner /> : validInput ? <Success /> : <Error />}</InputGroupAddon>}
       </InputGroup>
       {showFormMessage && <FormMessage error={error?.message as string} />}
     </div>
