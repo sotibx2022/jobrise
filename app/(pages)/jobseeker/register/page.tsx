@@ -18,6 +18,8 @@ import { useState } from "react"
 import FormMessage from "@/app/components/form/FormMessage"
 import ResponsiveButton from "@/app/components/buttons/ResponsiveButton"
 import { stepFields } from "@/app/types/employeeRegisterFields";
+import Steps from "@/app/components/structure/Steps";
+import { ButtonGroup } from "@/components/ui/button-group";
 const Page = () => {
   const componentsArray = [AccountInformation,
     PersonalInformation,
@@ -47,6 +49,7 @@ const Page = () => {
       <Card className='container'>
         <CardHeader>
           <CardTitle>Employee Register Form</CardTitle>
+          <Steps stepsLength={componentsArray.length} currentStep={nextValue} />
         </CardHeader>
         <FormProvider {...methods}>
           <form>
@@ -58,25 +61,26 @@ const Page = () => {
                       <Component />
                     </CardContent>
                     <CardFooter className="flex flex-col gap-4">
-                      <FormMessage error={globalError} />
-                      {nextValue > 0 && (
-                        <ResponsiveButton
-                          onClick={() => setNextValue(nextValue - 1)}
-                          type="button"
-                          text="Back"
-                          icon={ChevronLeft}
-                          className='mr-auto'
-                        />
-                      )}
-                      {nextValue < componentsArray.length - 1 && (
-                        <ResponsiveButton
-                          onClick={() => handleNext(index)}
-                          type="button"
-                          text="Next"
-                          icon={ChevronRight}
-                          className='ml-auto'
-                        />
-                      )}
+                      <FormMessage error={globalError ? globalError : undefined} />
+                      <ButtonGroup>
+                        {nextValue > 0 && (
+                          <ResponsiveButton
+                            onClick={() => setNextValue(nextValue - 1)}
+                            type="button"
+                            text="Back"
+                            icon={ChevronLeft}
+                          />
+                        )}
+                        {nextValue < componentsArray.length - 1 && (
+                          <ResponsiveButton
+                            onClick={() => handleNext(index)}
+                            type="button"
+                            text="Next"
+                            icon={ChevronRight}
+                            iconLast={true}
+                          />
+                        )}
+                      </ButtonGroup>
                     </CardFooter>
                   </>
                 )}

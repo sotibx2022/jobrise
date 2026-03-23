@@ -7,15 +7,16 @@ interface ResponsiveButtonProps {
   icon: LucideIcon;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
-  className?:string
+  className?: string;
+  iconLast?: boolean;
 }
-const ResponsiveButton: React.FC<ResponsiveButtonProps> = ({ text, icon: Icon, onClick, type,className }) => {
+const ResponsiveButton: React.FC<ResponsiveButtonProps> = ({ text, icon: Icon, onClick, type, className, iconLast }) => {
   const [hoverText, setHoverText] = useState(false)
   return (
     <Button
       onClick={onClick}
       type={type}
-      className={`${className} relative`}
+      className={`${className} relative ${iconLast ? "flex flex-row-reverse" : ""}`}
       onMouseEnter={() => setHoverText(true)} onMouseLeave={() => setHoverText(false)}
     >
       <Icon size={20} />

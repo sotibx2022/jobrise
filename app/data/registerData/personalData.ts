@@ -13,6 +13,7 @@ export type PersonalData = {
   placeholder: string;
   name: PersonalFieldName;
   type: string;
+  options?:string[]
 };
 export const personalData: PersonalData[] = [
   {
@@ -31,13 +32,14 @@ export const personalData: PersonalData[] = [
     lable: "Gender",
     placeholder: "Male / Female / Other",
     name: "gender",
-    type: "text"
+    type: "checkbox",
+    options:['Male','Female','Others']
   },
   {
     lable: "Nationality",
     placeholder: "American",
     name: "nationality",
-    type: "text"
+    type: "select",
   },
   {
     lable: "City",
@@ -55,7 +57,7 @@ export const personalData: PersonalData[] = [
     lable: "Country",
     placeholder: "USA",
     name: "address.country",
-    type: "text"
+    type: "select",
   },
   {
     lable: "Postal / ZIP Code",
