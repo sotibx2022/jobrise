@@ -32,32 +32,20 @@ export const personalData: PersonalData[] = [
     lable: "Gender",
     placeholder: "Male / Female / Other",
     name: "gender",
-    type: "checkbox",
-    options:['Male','Female','Others']
-  },
-  {
-    lable: "Nationality",
-    placeholder: "American",
-    name: "nationality",
-    type: "select",
+    type: "radio",
+    options:['Male','Female','Other']
   },
   {
     lable: "City",
-    placeholder: "New York",
+    placeholder: "Kathmandu",
     name: "address.city",
     type: "text"
   },
   {
     lable: "Street",
-    placeholder: "123 Main St",
+    placeholder: "MaijuBahal, Chabahil",
     name: "address.street",
     type: "text"
-  },
-  {
-    lable: "Country",
-    placeholder: "USA",
-    name: "address.country",
-    type: "select",
   },
   {
     lable: "Postal / ZIP Code",
@@ -65,10 +53,4 @@ export const personalData: PersonalData[] = [
     name: "postalCode",
     type: "text"
   },
-  {
-    lable: "Profile Photo",
-    placeholder: "Upload your photo",
-    name: "profilePhoto",
-    type: "file"
-  }
 ];

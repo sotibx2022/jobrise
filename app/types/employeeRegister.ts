@@ -24,11 +24,9 @@ export const employeePersonalInfo = z.object({
   fullName: createNameSchema(2, 100, /^[A-Za-z ]+$/, "Full Name"),
   dateOfBirth: createDateValidation("Date of Birth", true),
   gender: z.enum(["Male", "Female", "Other"], "Please select a valid gender option"),
-  nationality: z.string().min(1, "Nationality is required"),
   address: z.object({
     city: createNameSchema(2, 50, /^[A-Za-z ]+$/, "City"),
     street: z.string().min(1, "Street is required"),
-    country: z.string().min(1, "Country is required"),
   }),
   postalCode: createNumberSchema("Postal Code", 5), // assuming postal code is 5 digits, adjust as needed
   profilePhoto: z.string(),

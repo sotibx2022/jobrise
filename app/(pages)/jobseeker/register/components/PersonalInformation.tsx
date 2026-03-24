@@ -1,9 +1,7 @@
 import FormInput from '@/app/components/form/inputs/FormInput'
 import { personalData } from '@/app/data/registerData/personalData'
 import { registerDetails } from '@/app/types/employeeRegister'
-import React from 'react'
 const PersonalInformation = () => {
-  console.log(personalData);
   return (
     <div>
       {personalData.map((info, index) => {
